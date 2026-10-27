@@ -1,7 +1,6 @@
 {
   "meta.title": "WorkBuddy 积分看板 (dsh-workbuddy-billing)",
   "meta.description": "在每条回复下方显示本轮消耗积分与剩余积分。优先读取 WorkBuddy 上游真实余额差值（实测），上游不可用时自动降级为 token × 积分倍率估算（估算）。",
-
   "turn.spentLabel": "本轮消耗",
   "turn.remainingLabel": "剩余",
   "turn.estimatedBadge": "估算",
@@ -9,10 +8,8 @@
   "turn.tokensHint": "输入 {input} · 缓存读 {cacheRead} · 缓存写 {cacheWrite} · 输出 {output}",
   "turn.modelLabel": "模型",
   "turn.unavailable": "积分数据暂不可用",
-
   "credits.unit": "积分",
   "credits.thousandsSep": ",",
-
   "settings.enabled.description": "显示每条回复下方的本轮消耗与剩余积分。关闭后不再采集任何数据，也不注册任何路由。",
   "settings.region.description": "读取哪个地区的 WorkBuddy 余额：cn = 国内版，global = 国际版。",
   "settings.refreshSeconds.description": "余额缓存有效期（秒）。每轮开始与结束时都会强制重新采样，此值只影响界面的轮询刷新频率。",
@@ -21,5 +18,7 @@
   "settings.modelCatalog.description": "按模型 id 覆盖积分倍率，例如 {\"deepseek-v4.1-flash\": 0.11}。覆盖值优先于内置目录。",
   "settings.defaultCreditMultiplier.description": "模型不在目录中时使用的积分倍率。",
   "settings.hostOrigin.description": "上游插件所在主机的地址，例如 http://127.0.0.1:8495。留空则自动从请求或环境变量推断，无需手工填写。",
-  "settings.sessionEvents.description": "订阅宿主的会话事件流来自动识别每轮的开始与结束。仅在自动识别失效时才需要关闭（关闭后由前端主动上报轮次）。"
+  "settings.sessionEvents.description": "订阅宿主的会话事件流来自动识别每轮的开始与结束。仅在自动识别失效时才需要关闭（关闭后由前端主动上报轮次）。",
+  "turn.sharedAccountHint": "余额的变化幅度超出了本轮 token 能解释的范围，说明这个账号同时在别处（另一台电脑/另一个客户端）被使用，所以那个差值不能算作本轮的消耗。这里显示的是按本轮 token 估算的值。",
+  "turn.noTokensHint": "本轮没有记录到 token 用量（可能没有模型调用，或事件未被观察到），因此无法给出可靠数字。"
 }
