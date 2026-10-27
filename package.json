@@ -1,0 +1,65 @@
+{
+  "name": "dsh-workbuddy-billing",
+  "version": "0.1.0",
+  "displayName": "DSH WorkBuddy 积分看板",
+  "description": "在每条回复下方显示本轮消耗积分与剩余积分。优先读取 WorkBuddy 上游真实余额差值（measured），上游不可用时自动降级为 token × creditMultiplier 估算（估算）。Shows per-turn credit spend and remaining WorkBuddy credits under each assistant reply, measured from the real upstream balance when available and estimated from tokens × creditMultiplier otherwise.",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0"
+  },
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./locale/*.json": "./locale/*.json",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "locale",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "keywords": [
+    "dsh-plugin",
+    "deepseek-harness",
+    "workbuddy",
+    "credits",
+    "积分",
+    "usage"
+  ],
+  "peerDependencies": {
+    "@deepseek-ai/cordis": ">=4.0.1 <5.0.0",
+    "@deepseek-ai/schemastery": ">=3.18.1 <4.0.0",
+    "react": "^18.2.0"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/cordis": { "optional": true },
+    "@deepseek-ai/schemastery": { "optional": true },
+    "react": { "optional": true }
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-chat",
+        "@deepseek-ai/dsh-client-locale"
+      ],
+      "platform": "web"
+    },
+    "compatibility": {
+      "dsh": ">=0.1.7-rc.1"
+    }
+  },
+  "dshhub": {
+    "schemaVersion": 1,
+    "displayName": "dsh-workbuddy-billing",
+    "summary": "每条回复下方显示本轮消耗积分与剩余积分，真实余额差值优先，缺失时自动降级为估算。",
+    "categories": ["费用", "Web UI", "观测"],
+    "surfaces": ["host", "web"]
+  }
+}

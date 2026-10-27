@@ -1,0 +1,25 @@
+{
+  "meta.title": "WorkBuddy Credits (dsh-workbuddy-billing)",
+  "meta.description": "Shows the credits this turn spent and the credits remaining under every assistant reply. Reads the real upstream balance delta when available (measured) and falls back to a token × credit-multiplier estimate otherwise (estimated).",
+
+  "turn.spentLabel": "This turn",
+  "turn.remainingLabel": "Remaining",
+  "turn.estimatedBadge": "Estimated",
+  "turn.estimatedHint": "The upstream balance is unavailable, so this figure is estimated from tokens × the model's credit multiplier. It may differ from what is actually billed.",
+  "turn.tokensHint": "Input {input} · cache read {cacheRead} · cache write {cacheWrite} · output {output}",
+  "turn.modelLabel": "Model",
+  "turn.unavailable": "Credit data is unavailable right now",
+
+  "credits.unit": "credits",
+  "credits.thousandsSep": ",",
+
+  "settings.enabled.description": "Show this turn's spend and the remaining credits under every assistant reply. When off, nothing is collected and no routes are registered.",
+  "settings.region.description": "Which WorkBuddy region to read the balance from: cn = mainland China, global = international.",
+  "settings.refreshSeconds.description": "How long a balance sample stays cached, in seconds. Each turn start and end forces a fresh sample; this only affects the UI's polling rate.",
+  "settings.showWhenEstimated.description": "When the upstream balance is unavailable, still show the token-based estimate. Turn this off to show only \"data unavailable\".",
+  "settings.priceBasis.description": "The conversion constant used by the estimate: credits per single token at credit multiplier 1.0. Default 0.0001 (100 credits per million tokens). Recalibrate this if you know your real billing rate.",
+  "settings.modelCatalog.description": "Per-model credit-multiplier overrides keyed by model id, for example {\"deepseek-v4.1-flash\": 0.11}. Overrides win over the built-in catalog.",
+  "settings.defaultCreditMultiplier.description": "The credit multiplier to assume for a model that is not in the catalog.",
+  "settings.hostOrigin.description": "Origin of the host serving the upstream plugin, for example http://127.0.0.1:8495. Leave empty to infer it from the request or the environment; you normally do not need to set this.",
+  "settings.sessionEvents.description": "Subscribe to the host's session event stream to detect each turn's start and end automatically. Only turn this off if that detection misbehaves (the browser half then reports turns instead)."
+}

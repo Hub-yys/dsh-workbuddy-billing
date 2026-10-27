@@ -1,0 +1,23 @@
+# Dependencies (this plugin has no runtime dependencies beyond its peers)
+node_modules/
+.pnpm-store/
+
+# Build / tooling output
+dist/
+build/
+*.tsbuildinfo
+
+# Local scratch & diagnostics
+_dsh_research/
+*.local.json
+*.log
+
+# OS noise
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp

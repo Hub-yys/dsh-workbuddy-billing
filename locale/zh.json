@@ -1,0 +1,25 @@
+{
+  "meta.title": "WorkBuddy 积分看板 (dsh-workbuddy-billing)",
+  "meta.description": "在每条回复下方显示本轮消耗积分与剩余积分。优先读取 WorkBuddy 上游真实余额差值（实测），上游不可用时自动降级为 token × 积分倍率估算（估算）。",
+
+  "turn.spentLabel": "本轮消耗",
+  "turn.remainingLabel": "剩余",
+  "turn.estimatedBadge": "估算",
+  "turn.estimatedHint": "上游余额不可用，此数值按 token × 模型积分倍率估算，与实际扣费可能有出入。",
+  "turn.tokensHint": "输入 {input} · 缓存读 {cacheRead} · 缓存写 {cacheWrite} · 输出 {output}",
+  "turn.modelLabel": "模型",
+  "turn.unavailable": "积分数据暂不可用",
+
+  "credits.unit": "积分",
+  "credits.thousandsSep": ",",
+
+  "settings.enabled.description": "显示每条回复下方的本轮消耗与剩余积分。关闭后不再采集任何数据，也不注册任何路由。",
+  "settings.region.description": "读取哪个地区的 WorkBuddy 余额：cn = 国内版，global = 国际版。",
+  "settings.refreshSeconds.description": "余额缓存有效期（秒）。每轮开始与结束时都会强制重新采样，此值只影响界面的轮询刷新频率。",
+  "settings.showWhenEstimated.description": "上游余额不可用时，是否仍然显示基于 token 的估算值。关闭后只显示「数据暂不可用」。",
+  "settings.priceBasis.description": "估算用的换率常数：每个 token 在积分倍率为 1.0 时折算的积分数。默认 0.0001（即每百万 token 折 100 积分）。如果你知道自己的真实扣费，可据此校准。",
+  "settings.modelCatalog.description": "按模型 id 覆盖积分倍率，例如 {\"deepseek-v4.1-flash\": 0.11}。覆盖值优先于内置目录。",
+  "settings.defaultCreditMultiplier.description": "模型不在目录中时使用的积分倍率。",
+  "settings.hostOrigin.description": "上游插件所在主机的地址，例如 http://127.0.0.1:8495。留空则自动从请求或环境变量推断，无需手工填写。",
+  "settings.sessionEvents.description": "订阅宿主的会话事件流来自动识别每轮的开始与结束。仅在自动识别失效时才需要关闭（关闭后由前端主动上报轮次）。"
+}
